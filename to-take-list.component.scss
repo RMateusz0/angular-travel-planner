@@ -1,0 +1,160 @@
+.my-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+.text-input-div {
+    display: flex;
+    margin-bottom: 5px;
+    // background-color: red;
+}
+.select-input-div {
+    display: flex;
+    margin-bottom: 15px;
+    // background-color: green;
+}
+.save-btn-div {
+    display: flex;
+    justify-content: center;
+    // background-color: gray;
+}
+
+
+.label-div {
+    width: 100px;
+    
+}
+.field-div {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+#item-name-input {
+    width: 100%;
+    padding-left: 5px;
+}
+
+#categories-select-input {
+    width: 100%;
+}
+
+.save-btn {
+    width: 100px;
+    height: 30px;
+}
+
+
+.available-buttons-div-container {
+    display: flex;
+    justify-content: center;
+
+    button {
+        width: 100px;
+        height: 30px;
+        margin: 0 10px;
+    }
+
+    button:last-child {
+        margin-left: 40px;
+        width: 160px;
+    }
+}
+
+
+
+
+
+.result-container {
+    margin-top: 30px;
+    min-width: 400px;
+}
+
+.result-div-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.result-div-left-side {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.result-div-right-side {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+ul {
+    list-style: none;
+    padding: 20px;
+}
+
+ul li {
+    padding: 4px 4px 4px 10px;
+    margin: 8px 0;
+    background-color: rgb(238, 238, 238);
+    border-radius: 8px;
+    border: 1px solid rgb(184, 184, 184);
+}
+
+ul li button {
+    width: 22px;
+    height: 22px;
+    margin-left: 5px;
+    background-color: rgb(47, 105, 182);
+    color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+
+@media (max-width:1220px) {
+    .available-buttons-div-container {
+        align-items: center;
+        flex-direction: column;
+    
+        button {
+            width: 100px;
+            height: 30px;
+            margin: 5px 0px;
+        }
+    
+        button:last-child {
+            margin-left: 0px;
+            width: 200px;
+            text-decoration: underline;
+        }
+    }
+}
+
+
+
+@media (max-width:520px) {
+    h1 {
+        font-size: 22px;
+    }
+    
+    h2 {
+        font-size: 17px;
+    }
+
+    .field-div {
+        width: 230px;
+    }
+}

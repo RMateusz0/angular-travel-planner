@@ -1,0 +1,88 @@
+<div class="my-main-container">
+
+<h1>Zaplanuj zwiedzanie</h1>
+<h2>Dodaj atrakcję:</h2>
+
+<div class="form-container">
+    <div class="input-group">
+        <div class="label">
+            <label for="attraction-name-input-field">*Miejsce/atrakcja:</label>
+        </div>
+        <div class="input-field">
+            <input type="text" maxlength="35" id="attraction-name-input-field" required [(ngModel)]="attractionNameInInputField">
+        </div>
+    </div>
+    <div class="input-group">
+        <div class="label">
+            <label for="cost-value-input-field">Cena:</label>
+        </div>
+        <div class="input-field">
+            <input type="number" id="cost-value-input-field" [(ngModel)]="attractionPriceInInputField">
+        </div>
+    </div>
+    <div class="input-group">
+        <div class="label">
+            <label for="date-input-field">Data:</label>
+        </div>
+        <div class="input-field">
+            <input type="date" id="date-input-field" [(ngModel)]="attractionDateInInputField">
+        </div>
+    </div>
+    <div class="input-group">
+        <div class="label">
+            <label for="time-input-field">Godzina:</label>
+        </div>
+        <div class="input-field">
+            <input type="time" id="time-input-field" [(ngModel)]="attractionTimeInInputField">
+        </div>
+    </div>
+    <div class="input-group">
+        <div class="label">
+            <label for="notes-input-field">Notatki:</label>
+        </div>
+        <div class="input-field">
+            <textarea id="notes-input-field" maxlength="170" rows="4" cols="50" [(ngModel)]="attractionNotesInInputField"></textarea>
+        </div>
+        <button [disabled]="!attractionNameInInputField" (click)="addAtractionToList()">Zapisz</button>
+    </div>
+</div>
+
+
+
+<h2>Zaplanowane atrakcje:</h2>
+
+<div class="result-container">
+    <ul>
+        <li *ngFor="let attraction of attractionSavedList">
+
+            <div class="attraction-name-div">
+                <span>{{attraction.attractionName}}</span>
+                <button (click)="removeAttraction(attraction.attractionName)">✕</button>
+            </div>
+            <div class="result-group" *ngIf="attraction.attractionPrice">
+                <div class="result-label">Cena:</div>
+                <div class="result-value">{{attraction.attractionPrice}}</div>
+            </div>    
+            <div class="result-group" *ngIf="attraction.attractionDate">
+                <div class="result-label">Data:</div>
+                <div class="result-value">{{attraction.attractionDate}}</div>
+            </div>   
+            <div class="result-group" *ngIf="attraction.attractionTime">
+                <div class="result-label">Godzina:</div>
+                <div class="result-value">{{attraction.attractionTime}}</div>
+            </div>
+            <div class="result-group" *ngIf="attraction.attractionNotes">
+                <div class="result-label">Notatki:</div>
+                <div class="result-value">{{attraction.attractionNotes}}</div>
+            </div>
+            
+        </li>
+    </ul>
+</div>
+
+
+
+
+
+
+</div>

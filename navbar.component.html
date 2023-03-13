@@ -1,0 +1,35 @@
+<nav>
+    <div class="brand">
+        <div class="brand-item-logo"></div>
+        <div class="brand-item-title"><a href="/" class="link-brand-item-title">{{siteTitle}}</a></div>
+    </div>
+    <div>
+
+
+        <ul class="full-navbar">
+            <li (click)="openDialog()">INFO</li>
+            <li><a routerLink="/">HOME</a></li>
+            <li><a routerLink="/to-take-list" routerLinkActive="active-link-route">SPAKUJ SIĘ</a></li>
+            <li><a routerLink="/places-to-visit" routerLinkActive="active-link-route">USTAL PLAN</a></li>
+            <li><a routerLink="/currencies" routerLinkActive="active-link-route">PRZELICZNIK WALUT</a></li>
+            <!-- <li><a routerLink="/blablabla">Error 404</a></li> -->
+        </ul>
+        
+        <ul class="small-navbar-btn" (click)="changeDisplay()">
+            <li>☰</li>
+
+            <div class="toggle-menu" [ngClass]="{'toggle-menu-display': displayToggle}">
+                <ul>
+                    <li><a routerLink="/">HOME</a></li>
+                    <li><a routerLink="/to-take-list" routerLinkActive="active-link-route">SPAKUJ SIĘ</a></li>
+                    <li><a routerLink="/places-to-visit" routerLinkActive="active-link-route">USTAL PLAN</a></li>
+                    <li><a routerLink="/currencies" routerLinkActive="active-link-route">PRZELICZNIK WALUT</a></li>
+                    <li (click)="openDialog()">INFO</li>
+                    <!-- <li><a routerLink="/badlink">Error 404</a></li> -->
+                </ul>
+            </div>
+
+        </ul>
+
+    </div>
+</nav>

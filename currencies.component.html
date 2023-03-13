@@ -1,0 +1,65 @@
+<div class="my-main-container">
+
+
+    <h1>
+        Przelicznik walut
+    </h1>
+    <h4>(API) https://v6.exchangerate-api.com</h4>
+
+    <div class="exchange-box">
+    
+    <div class="input-group">
+        <div class="label-div">
+        Przelicz z waluty:
+        </div>
+        <div class="input-field-div">
+            <select id="currency1" [(ngModel)]="currencyNameSelected1" required>
+                <option *ngFor="let currencyName of currenciesNamesStringArray" value="{{currencyName}}">{{currencyName}}</option>
+            </select>
+        </div>
+
+    </div>
+
+
+
+    <div class="input-group">
+        <div class="label-div">
+            na walutę:
+        </div>
+        <div class="input-field-div">
+            <select id="currency2" [(ngModel)]="currencyNameSelected2" required>
+            <option *ngFor="let currencyName of currenciesNamesStringArray" value="{{currencyName}}">{{currencyName}}</option>
+        </select>
+        </div>
+    </div>
+
+
+
+    <div class="input-group">
+        <div class="label-div">
+            Kwota początkowa:
+        </div>
+        <div class="input-field-div">
+            <input class="amountInputField" type="number" [(ngModel)]="amount" required>
+        </div>
+    </div>
+
+
+
+    <div class="button-div">
+        <button class="calc-button" (click)="calculate()">Przelicz</button>
+    </div>
+
+
+
+    <div class="input-group-result" *ngIf="resultProcessed">
+        <div class="label-div">
+            Wynik:
+        </div>
+        <div class="input-field-div-result">
+            {{ resultOfCalc | number: '1.2-2' }} {{ resultChosenRate }}</div>
+        </div>
+    </div>
+
+
+</div>

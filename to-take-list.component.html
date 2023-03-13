@@ -1,0 +1,93 @@
+    <div class="my-main-container">
+
+        <h1>Lista rzeczy do spakowania</h1>
+
+        <h2>Dodawanie nowego przedmiotu:</h2>
+
+        
+
+        <div>
+
+            <div class="text-input-div">
+                <div class="label-div">
+                    <label for="item-name-input">*Nazwa: </label>
+                </div>
+                <div class="field-div">
+                    <input id="item-name-input" maxlength="30" type="text" [(ngModel)]="itemNameInputField" placeholder="" required="">
+                </div>
+            </div>
+
+            <div class="select-input-div">
+                <div class="label-div">
+                    <label for="categories-select-input">*Kategoria: </label>
+                </div>
+                <div class="field-div">
+                    <select id="categories-select-input" [(ngModel)]="selectedCategoryByUser" required>
+                    <option value="" disabled selected>Wybierz opcję</option>
+                    <option *ngFor="let category of availableCategories" value="{{category}}">{{category}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="save-btn-div">
+                <button class="save-btn" (click)="saveItem()" [disabled]="!itemNameInputField || !selectedCategoryByUser">Zapisz</button>
+            </div>
+       
+        </div>
+
+
+
+        <h2>Aktualna lista rzeczy do zabrania:</h2>
+
+
+        <div class="available-buttons-div-container">
+                <button *ngFor="let oneAvailableCategory of availableCategories" (click)="showOneOfCategory(oneAvailableCategory)" [disabled]="this.actuallyShowedCategory === oneAvailableCategory">{{oneAvailableCategory}}</button>
+                <button (click)="showAllOfCategories()" [disabled]="this.actuallyShowedCategory === 'all'">Wszystkie kategorie</button>  
+   
+        </div>
+
+         
+        
+
+        <div class="result-container">
+            <ul *ngIf="actuallyShowedCategory === 'all'">
+            <li *ngFor="let item of savedItemsToTakeArray">
+
+                <div class="result-div-container">
+                    <div class="result-div-left-side">
+                        {{item.itemInListName}}
+                    </div>
+                    <div class="result-div-right-side">
+                        <button (click)="removeItem(item.itemInListName)">✕</button>
+                    </div>
+                </div>
+                
+                
+
+
+            </li>
+            </ul>
+
+            <ul *ngIf="actuallyShowedCategory !== 'all'">
+                <ng-container *ngFor="let item of savedItemsToTakeArray">
+                    <li *ngIf="item.categoryOfItemInList === actuallyShowedCategory">
+                        
+                        <div class="result-div-container">
+                            <div class="result-div-left-side">
+                                {{item.itemInListName}}
+                            </div>
+                            <div class="result-div-right-side">
+                                <button (click)="removeItem(item.itemInListName)">✕</button>
+                            </div>
+                        </div>
+                        
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+
+        
+
+        
+   
+    </div>
